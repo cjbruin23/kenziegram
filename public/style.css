@@ -1,7 +1,4 @@
 #container {
     display: flex;
-    width: 900px;
-}
-body {
-    border: 2px solid black;
+    flex-wrap: wrap;
 }
