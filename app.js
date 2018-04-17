@@ -1,7 +1,7 @@
 const express = require('express')
 const multer = require('multer');
 const fs = require('fs');
-const pug = require('pug');
+const path = require('path');
 const upload = multer({ dest: 'public/uploads' })
 
 const port = 3000;
@@ -9,14 +9,15 @@ const app = express()
 
 const uploaded_files = [];
 
-app.use('/public', express.static('./public'));
-app.use(express.static('./public/uploads/'))
+app.use(express.static('./public'));
+app.use(express.static('./public/uploads/'));
+
+
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-// Question: why are we specifying a destination with upload then using express static
-
 app.get('/', (req, res) => {
+
     const path = './public/uploads';
 
     fs.readdir(path, function(err, items) {
