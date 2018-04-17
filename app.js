@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 
     fs.readdir(path, function(err, items) {
         res.render('index', {
-            cat: 'cat',
             pictures: items
         });
     });
