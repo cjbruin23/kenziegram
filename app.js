@@ -32,11 +32,9 @@ app.post('/upload', upload.single('myFile'), function (req, res, next) {
     // req.body will hold the text fields, if there were any
     console.log("Uploaded: " + req.file.filename);
     uploaded_files.push(req.file.filename);
-    let string = '';
-    string += `<img src=./public/uploads/${req.file.filename} alt='img${req.file.filename}'>`
-    string += `<button onclick='goBack()'>Go Back</button>`;
-    string += `<script> const goBack = () => {window.history.back();}</script>`
-    res.send(string);
+    res.render('upload', {
+        fileToUpload: req.file.filename
+    })
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

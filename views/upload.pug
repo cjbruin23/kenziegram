@@ -2,4 +2,9 @@ doctype html
 html
     head
     body
-    
+        img(src=fileToUpload)
+        button(type='button' onclick='goBack()') Back
+        script.
+            function goBack() {
+                window.history.back();
+            }
