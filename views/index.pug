@@ -1,6 +1,9 @@
 doctype html
 html
     head
+        link(rel="stylesheet" type="text/stylesheet" href="style.css")
     body
-        each pic, picture in pictures
-            img(src=pic)
+        div(id="container")
+            each pic, picture in pictures
+                div(class='containers')
+                    img(src=pic alt=pic width='400' height='300')
